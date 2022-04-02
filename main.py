@@ -15,24 +15,41 @@ def arithmetic_arranger(inp, dis):
         num1 = data[0]
         num2 = data[2]
         if len(str(num1)) > 4 or len(str(num2)) > 4:
-            print('Error: Numbers must only contain digits.')
+            print('Error: Numbers cannot be more than four digits.')
             quit()
         if data[1] == '+':
-            ans = ' '
             if dis is True:
                 ans = num1 + num2
-            solution.append('    {}\n+    {}\n------\n   {}'.format(num1, num2, ans))
-            continue
+                data.append('------')
+                data.append(ans)
+                solution.append(data)
+                continue
+            else:
+                data.append('------')
+                data.append(' ')
+                solution.append(data)
         if data[1] == '-':
-            ans = ' '
             if dis is True:
                 ans = num1 - num2
-            solution.append('    {}\n+    {}\n------\n   {}'.format(num1, num2, ans))
-            continue
+                data.append('------')
+                data.append(ans)
+                solution.append(data)
+                continue
+            else:
+                data.append('------')
+                data.append(' ')
+                solution.append(data)
         else:
             print("'Error: Operator must be '+' or '-'.")
+            quit()
     if len(solution) > 4:
         print('Error: Too many problems')
-    print(solution)
+        quit()
+    while len(solution) < 4:
+        test = [' ', ' ', ' ', ' ', ' ']
+        solution.append(test)
+    return solution
 
-arithmetic_arranger(['32 + 8', '32 - 8'], True)
+
+solution = arithmetic_arranger(["32 + 698", "3801 - 2", "4500 - 43"], True)
+print(solution[0][2])
