@@ -1,4 +1,5 @@
-def arithmetic_arranger(inp, dis):
+def arithmetic_arranger(inp, dis=None):
+
     solution = []
     for ctx in inp:
         data = []
@@ -54,7 +55,6 @@ def arithmetic_arranger(inp, dis):
         add = [' ', ' ', ' ', ' ', ' ']
         solution.append(add)
     # Formating of the answer
-    print(solution, '\n')
     arranged_problems = (f'{solution[0][0]:>7}{solution[1][0]:>7}{solution[2][0]:>7}{solution[3][0]:>7}\n'
                          f'{solution[0][1]:>2}{solution[0][2]:>5}{solution[1][1]:>2}{solution[1][2]:>5}{solution[2][1]:>2}{solution[2][2]:>5}{solution[3][1]:>2}{solution[3][2]:>5}\n'
                          f'{solution[0][3]:>7}{solution[1][3]:>7}{solution[2][3]:>7}{solution[3][3]:>7}\n'
@@ -63,6 +63,6 @@ def arithmetic_arranger(inp, dis):
     return arranged_problems
 
 
-answer = arithmetic_arranger(["32 + 698"], False)
+answer = arithmetic_arranger(["32 + 698"], True)
 
 print(answer)
