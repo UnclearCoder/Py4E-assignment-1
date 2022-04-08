@@ -30,6 +30,7 @@ def arithmetic_arranger(inp, dis):
                 data.append('------')
                 data.append(' ')
                 solution.append(data)
+                continue
         if data[1] == '-':
             if dis is True:
                 ans = num1 - num2
@@ -37,10 +38,11 @@ def arithmetic_arranger(inp, dis):
                 data.append(ans)
                 solution.append(data)
                 continue
-            else:
+            if dis is False:
                 data.append('------')
                 data.append(' ')
                 solution.append(data)
+                continue
         else:
             print("'Error: Operator must be '+' or '-'.")
             quit()
@@ -53,14 +55,14 @@ def arithmetic_arranger(inp, dis):
         solution.append(add)
     # Formating of the answer
     print(solution, '\n')
-    test = (f'{solution[0][0]:>7}{solution[1][0]:>7}{solution[2][0]:>7}{solution[3][0]:>7}\n'
-            f'{solution[0][1]:>2}{solution[0][2]:>5}{solution[1][1]:>2}{solution[1][2]:>5}{solution[2][1]:>2}{solution[2][2]:>5}{solution[3][1]:>2}{solution[3][2]:>5}\n'
-            f'{solution[0][3]:>7}{solution[1][3]:>7}{solution[2][3]:>7}{solution[3][3]:>7}\n'
-            f'{solution[0][4]:>7}{solution[1][4]:>7}{solution[2][4]:>7}{solution[3][4]:>7}'
-            )
-    return test
+    arranged_problems = (f'{solution[0][0]:>7}{solution[1][0]:>7}{solution[2][0]:>7}{solution[3][0]:>7}\n'
+                         f'{solution[0][1]:>2}{solution[0][2]:>5}{solution[1][1]:>2}{solution[1][2]:>5}{solution[2][1]:>2}{solution[2][2]:>5}{solution[3][1]:>2}{solution[3][2]:>5}\n'
+                         f'{solution[0][3]:>7}{solution[1][3]:>7}{solution[2][3]:>7}{solution[3][3]:>7}\n'
+                         f'{solution[0][4]:>7}{solution[1][4]:>7}{solution[2][4]:>7}{solution[3][4]:>7}'
+                         )
+    return arranged_problems
 
 
-answer = arithmetic_arranger(["32 + 698", "3801 - 2", "4500 - 43"], True)
+answer = arithmetic_arranger(["32 + 698"], False)
 
 print(answer)
